@@ -217,3 +217,5 @@ markers = [
 filterwarnings = [
     "ignore::starlette.exceptions.StarletteDeprecationWarning",
 ]
+[tool.uv.sources]
+octop-harness = { git = "https://github.com/TencentCloud/octop-harness.git", rev = "fab1b57cc3460058daf2f9668898bece1693d1a9" }
