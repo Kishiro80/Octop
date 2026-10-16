@@ -23,6 +23,7 @@ from typing import Any
 
 from octop.i18n import tr
 from octop.infra.utils.paths import PathLayout
+from octop.infra.utils.posix_compat import killpg
 
 LAYA_VERSION = "0.4.7"
 LAYA_HOST = "127.0.0.1"
@@ -464,7 +465,7 @@ class LayaRuntime:
             if os.name == "nt":
                 os.kill(pid, 15)
             else:
-                os.killpg(pid, 15)
+                killpg(pid, 15)
         if proc is not None:
             with contextlib.suppress(asyncio.TimeoutError):
                 await asyncio.wait_for(proc.wait(), timeout=5)
